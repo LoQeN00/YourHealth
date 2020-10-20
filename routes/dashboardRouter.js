@@ -4,10 +4,12 @@ const getSteps = require('../functions/getSteps')
 
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
-    const steps24Data = await getSteps(10, Date.now() - 86400000, Date.now(), req.user.accessToken)
+    const steps24Data = await getSteps(30, Date.now() - 86400000, Date.now(), req.user.accessToken)
     let steps24
     try {
-        steps24 = steps24Data.reduce((acc,num)=>acc+num)
+        const {steps_arr} = steps24Data
+        steps24 = steps_arr.reduce((acc,num)=>acc+num)
+        
     }   catch(e) {
         steps24 = 'Nie ma danych'
     }

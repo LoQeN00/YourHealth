@@ -11,7 +11,13 @@
 <body>
     {{>menu}}
     <main class='content'>
-        <h1>Twoje kroki przez ostatnie 24h to {{steps24}} </h1>
+        <h1>Twoje kroki przez ostatnie 24h to: {{steps24}} </h1>
+        <div class='chart'>
+            <canvas id='step__chart'></canvas>
+
+        </dv>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>

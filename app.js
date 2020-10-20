@@ -7,6 +7,7 @@ const cookieSession = require('cookie-session')
 const hbs = require('hbs')
 const path = require('path')
 const dashboardRouter = require('./routes/dashboardRouter')
+const chartDataRouter = require('./routes/chartDataRouter')
 const isLoggedIn = require('./functions/isLoggedIn')
 
 
@@ -57,6 +58,7 @@ app.get('/google/callback',
 })
 
 app.use('/dashboard',dashboardRouter)
+app.use('/chartData',chartDataRouter)
 
 app.get('/fail',(req,res)=>{
     res.send('Wrong login data')
