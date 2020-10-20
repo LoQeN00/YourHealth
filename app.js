@@ -68,6 +68,5 @@ app.get('/logout',(req,res)=>{
     res.redirect('/login')
 })
 
-
 app.listen(process.env.PORT || 3000,()=>console.log('Dziala'))
 
