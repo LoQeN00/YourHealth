@@ -1,7 +1,7 @@
 //a tutaj dane odbierasz
 
 const getData = async () => {
-    const data = await fetch('http://yourhealth-hackheroes.herokuapp.com/chartData',{
+    const data = await fetch('https://yourhealth-hackheroes.herokuapp.com/chartData',{
      method:"GET",
      headers : new Headers({
         'Content-Type':'application/json'
