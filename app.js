@@ -11,6 +11,7 @@ const chartDataRouter = require('./routes/chartDataRouter')
 const isLoggedIn = require('./functions/isLoggedIn')
 
 
+
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
@@ -34,6 +35,7 @@ app.use(cookieSession({
     secret: "SECRET_SIGNING_KEY",
     maxAge: 15724800000
 }))
+
 
 
 app.use(passport.initialize())

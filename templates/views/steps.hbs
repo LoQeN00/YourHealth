@@ -12,7 +12,18 @@
     {{>menu}}
     <main class='content'>
         <h1>{{routeName}}</h1>
-        <h2>{{motivationQuoteText}} ~ {{motivationQuoteAuthor}}</h2>
+        <h2>Twoje kroki przez ostatnie 24h to: {{steps24}} </h1>
+        <div class='24chart chart'>
+            <canvas id='step__24__chart'></canvas>    
+        </div>
+        <div class='7dchart chart'>
+            <canvas id='step__7d__chart'></canvas>
+        </div>
+        <div class='30dchart chart'>
+            <canvas id='step__30d__chart'></canvas>
+        </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/js/steps.js"></script>
 </body>
 </html>

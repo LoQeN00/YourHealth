@@ -1,7 +1,9 @@
 //a tutaj dane odbierasz
+const develop = 'http://localhost:3000/chartData'
+const production = 'https://yourhealth-hackheroes.herokuapp.com/chartData'
 
 const getData = async () => {
-    const data = await fetch('https://yourhealth-hackheroes.herokuapp.com/chartData',{
+    const data = await fetch(production,{
      method:"GET",
      headers : new Headers({
         'Content-Type':'application/json'
@@ -62,8 +64,22 @@ const makeBarChart = (ctx, labels, data, label) => {
 
 const makeCharts = async () => {
     const data = await getData()
-    const stepDataCtx = document.getElementById('step__chart')
-    makeBarChart(stepDataCtx, data.date_arr, data.steps_arr, 'Twoje ostatnie 24h aktywności')
+    const step24DataCtx = document.getElementById('step__24__chart')
+    const step7dDataCtx = document.getElementById('step__7d__chart')
+    const step30dDataCtx = document.getElementById('step__30d__chart')
+
+    
+    data.date7d_arr.forEach(item=> {
+        item.pop()
+    })
+
+    data.date30d_arr.forEach(item => {
+        item.pop()
+    })
+
+    makeBarChart(step24DataCtx, data.date24_arr, data.steps24_arr, 'Twoje ostatnie 24h aktywności')
+    makeBarChart(step7dDataCtx, data.date7d_arr, data.steps7d_arr, 'Porownanie dni z ostatniego tygodnia')
+    makeBarChart(step30dDataCtx, data.date30d_arr, data.steps30d_arr, 'Porownanie tygodni z ostatniego miesiaca')
 }
 
 

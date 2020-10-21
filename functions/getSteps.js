@@ -46,7 +46,7 @@ const getSteps = async (durationMins, startTime, endTime, token)=>{
             }
         }
 
-        return {steps_arr, date_arr}
+        return [steps_arr, date_arr]
 
 }   catch(e){
         return "Nie ma danych do wyświetlenia"
