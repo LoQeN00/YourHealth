@@ -33,7 +33,6 @@ app.use(cookieSession({
     name: 'session',
     keys: ['key1', 'key2'],
     secret: "SECRET_SIGNING_KEY",
-    maxAge: 15724800000
 }))
 
 
