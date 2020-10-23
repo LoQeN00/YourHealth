@@ -11,6 +11,11 @@ const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
     try {
+        const find = await User.findOne({
+            email: req.req.user.profile._json.email
+        })
+
+    } catch {
         const user = new User({
             email: req.user.profile._json.email,
             username: req.user.profile.displayName,
@@ -19,11 +24,23 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
             achievements : [],
             lastLoggedIn: Date.now() + timeZoneOffset
         })
-    
-        const result = await user.save()
-    } catch(e) {
-        res.redirect('/dashboard')
+
     }
+
+    // try {
+    //     const user = new User({
+    //         email: req.user.profile._json.email,
+    //         username: req.user.profile.displayName,
+    //         steps: 0,
+    //         created: Date.now() + timeZoneOffset,
+    //         achievements : [],
+    //         lastLoggedIn: Date.now() + timeZoneOffset
+    //     })
+    
+    //     const result = await user.save()
+    // } catch(e) {
+    //     res.redirect('/dashboard')
+    // }
         
     const motivationQuoteData = await getMotivationQuote()
 
