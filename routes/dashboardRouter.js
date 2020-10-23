@@ -11,17 +11,11 @@ const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
 
-    
-
-
     try {
         const user = await User.findOne({
             email: req.user.profile._json.email
         })
-
-        console.log(user)
     } catch(e) {
-        console.log(e)
         const user = new User({
             email: req.user.profile._json.email,
             username: req.user.profile.displayName,
