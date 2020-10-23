@@ -18,13 +18,13 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         lastLoggedIn: Date.now() + timeZoneOffset
     })
 
-    user.save(err=>{
+    user.save((err,result)=>{
         if(err) {
             if (err.name === 'MongoError' && err.code === 11000) {
                 console.log('Tak')
                 return
             }
-        }
+        } else if(result) console.log(result)
     })
 
 

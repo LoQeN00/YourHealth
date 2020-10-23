@@ -17,7 +17,7 @@ if(process.env.NODE_ENV !== 'production') {
 }
 
 
-connectToDatabase("mongodb+srv://LoQeN:ProLite00@yourhealth.7ntyx.mongodb.net/YourHealth?retryWrites=true&w=majority")
+connectToDatabase(process.env.DB_LINK)
 
 
 require('./passport-setup')
