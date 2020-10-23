@@ -6,7 +6,7 @@ const connectToDatabase = async (url) => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,
-            useCreateIndex: true
+            useCreateIndex: false
           },()=>console.log('Succesfully connected to databse'));
     } catch(e) {
         console.log(e)
