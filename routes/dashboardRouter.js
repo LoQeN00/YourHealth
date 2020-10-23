@@ -22,13 +22,9 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
     
         const result = await user.save()
     } catch(e) {
-        console.log(e)
+        res.redirect('/dashboard')
     }
         
-
-    
-
-   
     const motivationQuoteData = await getMotivationQuote()
 
     const randomIndex = Math.floor(Math.random()*motivationQuoteData.data.length)
