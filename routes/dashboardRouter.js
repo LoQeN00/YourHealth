@@ -25,6 +25,8 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
             lastLoggedIn: Date.now() + timeZoneOffset
         })
 
+        const result = await user.save()
+
     }
 
     // try {
