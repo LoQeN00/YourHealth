@@ -1,4 +1,3 @@
-//a tutaj dane odbierasz
 const develop = 'http://localhost:3000/chartData'
 const production = 'https://yourhealth-hackheroes.herokuapp.com/chartData'
 

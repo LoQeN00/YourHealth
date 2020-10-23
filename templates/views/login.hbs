@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboard.css">
     <title>Document</title>
 </head>
 <body>
-    <a href="/google">Log In With Google</a>
+    <div class="login-page">
+        <div class="login-page__logo-holder">
+            <span class='login-page__logo'>Your Health <i class="fas fa-heartbeat"></i></span>
+        </div>
+        <div class='login-page__main'>
+            <div class="login-page__div">
+                <h2 class="login-page__title">Log In</h2>
+            </div>
+
+            <div class="login-page__div2">
+                <a class="login-page__button" href="/google">
+                    <div class="login-page__button-holder">
+                        <div class="login-page__text">Log in with Google</div>
+                        <div class="login-page__img"><img class="login-page__google-icon" src="/images/google.png"></div>
+                    </div>
+                </a>
+            </div>
+        </div>   
+    </div>
 </body>
 </html>

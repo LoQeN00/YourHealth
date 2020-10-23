@@ -1,4 +1,5 @@
 const axios = require('axios')
+const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 
 const getSteps = async (durationMins, startTime, endTime, token)=>{
     const steps_arr = []
@@ -24,7 +25,7 @@ const getSteps = async (durationMins, startTime, endTime, token)=>{
                     durationMillis: (durationMins*60*1000) // Co ile zliczać
                 },
                 startTimeMillis: startTime, //Od kiedy
-                endTimeMillis: endTime+7200000
+                endTimeMillis: endTime+timeZoneOffset
             }
         })
     
@@ -49,6 +50,7 @@ const getSteps = async (durationMins, startTime, endTime, token)=>{
         return [steps_arr, date_arr]
 
 }   catch(e){
+        console.log(e)
         return "Nie ma danych do wyświetlenia"
 }
 

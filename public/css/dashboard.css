@@ -4,8 +4,11 @@
     box-sizing: border-box;
 }
 
+
+
 body {
     display: flex;  justify-content: center; align-items: center;
+    min-height: 100vh;
 }
 
 body,a {
@@ -53,3 +56,139 @@ body,a {
     width: 20%;
     height: 10%;
 }
+
+/* Login page */
+
+.login-page {
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom right, rgb(238, 230, 215),rgb(220, 243, 229),rgb(220,220,223));
+    /* overflow-y: hidden;
+    overflow-x: hidden; */
+}
+
+.login-page__logo-holder {
+    /* border: 4px solid black; */
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    min-height: 60px;
+    margin-bottom: 5rem;
+}
+
+.login-page__logo {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: rgb(33, 182, 125);
+    letter-spacing: 2px;
+    text-shadow: 0.5px 0.5px #000;
+}
+
+
+.fa-heartbeat {
+    color: rgb(17, 97, 73);
+}
+
+.login-page__main {
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    min-width: 400px;
+    height: 20rem;
+    background-color: rgb(245, 245, 245);
+    -webkit-box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.4);
+}
+
+.login-page__div {
+    /* border: 4px solid black; */
+    height: 30%;
+    padding: 10px;
+}
+
+
+.login-page__div2 {
+    /* border: 4px solid black; */
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    height: 40%;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.login-page__title {
+    color: rgb(17, 97, 73);
+    font-size: 2rem;
+}
+
+.login-page__button {
+    display: block;
+    background-color: rgb(33, 182, 125);
+    text-decoration: none;
+    font-size: 1rem;
+    color:white;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    /* border: 4px solid red; */
+}
+
+.fa-google {
+    margin-left: 0.2rem;
+    font-size: 1.2rem;
+}
+
+.login-page__google-icon {
+    display: inline-block;
+    max-width: 30px;
+    background-color: white;
+}
+
+.login-page__button-holder {
+    display: flex; justify-content: space-between; align-items: center;
+    border: 3px solid rgb(33, 182, 125);
+    border-radius: 4px;
+    position: relative;
+}
+
+.login-page__button-holder::before {
+    display: block;
+    content: "";
+    width: 120%;
+    height: 110%;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    background-color: black;
+    transition: all 0.2s ease;
+    opacity: 0;
+    z-index: 10;
+    border-radius: 4px;
+}
+
+.login-page__button-holder:hover::before {
+    opacity: 0.1;
+}
+
+
+.login-page__text {
+    padding: 0px 20px 0px 20px;
+}
+
+.login-page__img {
+    display: flex; justify-content: center; align-items: center;
+    min-height: 50px;
+    min-width: 50px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+
+
+
+
+@media (max-width: 576px){
+    .login-page__main {
+        min-width: 100%;
+    }
+}
+
+
+/* Dashboard */
