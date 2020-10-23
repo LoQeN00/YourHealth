@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema({
     username: String,
     steps: Number,
     created: Number,
-    achievements: Array,
     lastLoggedIn: Number
 })
 

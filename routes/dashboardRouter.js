@@ -5,7 +5,6 @@ const getMotivationQuote = require('../functions/motivationQuote')
 const mongoose = require('mongoose')
 const User = require('../models/User')
 const checkAchievements = require('../functions/checkAchievements')
-const { request } = require('express')
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 
 // achievement
@@ -16,13 +15,13 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         username: req.user.profile.displayName,
         steps: 0,
         created: Date.now() + timeZoneOffset,
-        achievements : [],
         lastLoggedIn: Date.now() + timeZoneOffset
     })
 
     user.save(err=>{
         if(err) {
             if (err.name === 'MongoError' && err.code === 11000) {
+                console.log('Tak')
                 return
             }
         }
