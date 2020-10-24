@@ -16,13 +16,11 @@ if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
-
 require('./passport-setup')
 
+app.use(cors())
 
 connectToDatabase(process.env.DB_LINK)
-
-app.use(cors())
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
@@ -39,10 +37,8 @@ app.use(cookieSession({
 }))
 
 
-
 app.use(passport.initialize())
 app.use(passport.session())
-
 
 
 app.get('/',(req,res)=>{

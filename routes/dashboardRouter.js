@@ -6,10 +6,8 @@ const mongoose = require('mongoose')
 const User = require('../models/User')
 const checkAchievements = require('../functions/checkAchievements')
 
-
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 
-// achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
 
@@ -107,6 +105,7 @@ router.get('/achievements',async(req,res)=> {
             steps: insertStepsToDatabase
         }
     )
+
     res.render('achievements',{
         routeName: 'Your Achievments',
         name: req.user.profile.displayName,
