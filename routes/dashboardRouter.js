@@ -5,20 +5,31 @@ const getMotivationQuote = require('../functions/motivationQuote')
 const mongoose = require('mongoose')
 const User = require('../models/User')
 const checkAchievements = require('../functions/checkAchievements')
+
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 
 // achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
-    const user = new User({
-        email: req.user.profile._json.email,
-        username: req.user.profile.displayName,
-        steps: 0,
-        created: Date.now() + timeZoneOffset,
-        lastLoggedIn: Date.now() + timeZoneOffset
-    })
 
-    await user.save()
+    
+    
+    User.findOne({
+        email: req.user.profile._json.email
+    })
+    .then(data=>{
+        if(data === null) {
+            const user = new User({
+                email: req.user.profile._json.email,
+                username: req.user.profile.displayName,
+                steps: 0,
+                created: Date.now() + timeZoneOffset,
+                achievements : [],
+                lastLoggedIn: Date.now() + timeZoneOffset
+            })
+            user.save()
+        }
+    })
 
 
     const motivationQuoteData = await getMotivationQuote()
