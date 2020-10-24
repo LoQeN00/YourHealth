@@ -18,10 +18,7 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
     const motivationQuoteText = motivationQuoteData.data[randomIndex].text
     const motivationQuoteAuthor = motivationQuoteData.data[randomIndex].author
 
-    const findUser = await User.findOne({
-        email: req.user.profile._json.email
-    })
-
+   
     
     res.render('dashboard',{
         routeName: 'Dashboard',
@@ -32,7 +29,11 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         motivationQuoteText,
     })
 
-  
+    
+    // const findUser = await User.findOne({
+    //     email: req.user.profile._json.email
+    // })
+
     
     // if(findUser === null) {
     //     const user = new User({
