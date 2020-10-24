@@ -5,6 +5,7 @@ const getMotivationQuote = require('../functions/motivationQuote')
 const mongoose = require('mongoose')
 const User = require('../models/User')
 const checkAchievements = require('../functions/checkAchievements')
+const connectToDatabase = require('../functions/connectToDatabase')
 
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 
@@ -13,6 +14,8 @@ const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 
 // achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
+
+    await connectToDatabase(process.env.DB_LINK)
 
     const motivationQuoteData = await getMotivationQuote()
 
@@ -33,7 +36,6 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
     const findUser = await User.findOne({
         email: req.user.profile._json.email
     })
-
     if(findUser === null) {
         const user = new User({
             email: req.user.profile._json.email,
