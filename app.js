@@ -9,7 +9,7 @@ const path = require('path')
 const dashboardRouter = require('./routes/dashboardRouter')
 const chartDataRouter = require('./routes/chartDataRouter')
 const isLoggedIn = require('./functions/isLoggedIn')
-const connectToDatabase = require('../functions/connectToDatabase')
+const connectToDatabase = require('./functions/connectToDatabase')
 
 
 if(process.env.NODE_ENV !== 'production') {
