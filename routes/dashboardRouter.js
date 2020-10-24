@@ -11,9 +11,6 @@ const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 // achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
-
-    
-    
     User.findOne({
         email: req.user.profile._json.email
     })
