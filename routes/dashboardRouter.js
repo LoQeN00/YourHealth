@@ -14,7 +14,7 @@ const connectToDatabase = require('../functions/connectToDatabase')
 // achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
-    // await connectToDatabase(process.env.DB_LINK)
+    await connectToDatabase(process.env.DB_LINK)
 
     // const findUser = await User.findOne({
     //     email: req.user.profile._json.email
