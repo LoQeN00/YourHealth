@@ -33,6 +33,9 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
     const findUser = await User.findOne({
         email: req.user.profile._json.email
     })
+
+    console.log('before if')
+    
     if(findUser === null) {
         const user = new User({
             email: req.user.profile._json.email,
@@ -42,6 +45,9 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
             achievements : [],
             lastLoggedIn: Date.now() + timeZoneOffset
         })
+
+    console.log('after if')
+    console.log(user)    
         await user.save()
     }
 })
