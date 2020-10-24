@@ -7,9 +7,14 @@ const User = require('../models/User')
 const checkAchievements = require('../functions/checkAchievements')
 
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
+const connectToDatabase = require('../functions/connectToDatabase')
+
+
 
 // achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
+
+    await connectToDatabase(process.env.DB_LINK)
 
     const findUser = await User.findOne({
         email: req.user.profile._json.email
