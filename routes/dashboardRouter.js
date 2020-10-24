@@ -15,17 +15,17 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         email: req.user.profile._json.email
     })
 
-    if(findUser === null) {
-        const user = new User({
-            email: req.user.profile._json.email,
-            username: req.user.profile.displayName,
-            steps: 0,
-            created: Date.now() + timeZoneOffset,
-            achievements : [],
-            lastLoggedIn: Date.now() + timeZoneOffset
-        })
-        await user.save()
-    }
+    // if(findUser === null) {
+    //     const user = new User({
+    //         email: req.user.profile._json.email,
+    //         username: req.user.profile.displayName,
+    //         steps: 0,
+    //         created: Date.now() + timeZoneOffset,
+    //         achievements : [],
+    //         lastLoggedIn: Date.now() + timeZoneOffset
+    //     })
+    //     await user.save()
+    // }
     
 
 
