@@ -20,67 +20,61 @@ if(process.env.NODE_ENV !== 'production') {
 require('./passport-setup')
 
 
-const setupApp = async() => {
-    
-    await connectToDatabase(process.env.DB_LINK)
-    app.use(cors())
+connectToDatabase(process.env.DB_LINK)
 
-    app.use(bodyParser.urlencoded({extended:false}))
-    app.use(bodyParser.json())
+app.use(cors())
 
-    app.set('view engine','hbs')
-    app.set('views',path.join(__dirname,'./templates/views'))
-    hbs.registerPartials(path.join(__dirname,'./templates/partials'))
-    app.use(express.static('public'))
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
 
-    app.use(cookieSession({
-        name: 'session',
-        keys: ['key1', 'key2'],
-        secret: "SECRET_SIGNING_KEY",
-    }))
+app.set('view engine','hbs')
+app.set('views',path.join(__dirname,'./templates/views'))
+hbs.registerPartials(path.join(__dirname,'./templates/partials'))
+app.use(express.static('public'))
 
-
-
-    app.use(passport.initialize())
-    app.use(passport.session())
+app.use(cookieSession({
+    name: 'session',
+    keys: ['key1', 'key2'],
+    secret: "SECRET_SIGNING_KEY",
+}))
 
 
 
-    app.get('/',(req,res)=>{
-        res.redirect('/login')
-    })
-
-    app.get('/login',isLoggedIn,(req,res)=> {
-        res.render('login.hbs')
-    })
-
-    app.get('/google',
-    passport.authenticate('google', { scope: ['profile','email','openid','https://www.googleapis.com/auth/fitness.activity.read'],prompt : "select_account"}
-    ))
-
-    app.get('/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/fail' }),
-    (req, res)=> {
-        res.redirect('/dashboard');
-    })
-
-    app.use('/dashboard',dashboardRouter)
-    app.use('/chartData',chartDataRouter)
-
-    app.get('/fail',(req,res)=>{
-        res.send('Wrong login data')
-    })
-
-    app.get('/logout',(req,res)=>{
-        req.session = null
-        req.logout()
-        res.redirect('/login')
-    })
-
-    app.listen(process.env.PORT || 3000,()=>console.log('Dziala'))
-}
-
-setupApp()
+app.use(passport.initialize())
+app.use(passport.session())
 
 
+
+app.get('/',(req,res)=>{
+    res.redirect('/login')
+})
+
+app.get('/login',isLoggedIn,(req,res)=> {
+    res.render('login.hbs')
+})
+
+app.get('/google',
+  passport.authenticate('google', { scope: ['profile','email','openid','https://www.googleapis.com/auth/fitness.activity.read'],prompt : "select_account"}
+))
+
+app.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/fail' }),
+  (req, res)=> {
+    res.redirect('/dashboard');
+})
+
+app.use('/dashboard',dashboardRouter)
+app.use('/chartData',chartDataRouter)
+
+app.get('/fail',(req,res)=>{
+    res.send('Wrong login data')
+})
+
+app.get('/logout',(req,res)=>{
+    req.session = null
+    req.logout()
+    res.redirect('/login')
+})
+
+app.listen(process.env.PORT || 3000,()=>console.log('Dziala'))
 
