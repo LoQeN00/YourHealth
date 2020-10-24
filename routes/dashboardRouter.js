@@ -14,24 +14,6 @@ const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 // achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
-    
-
-    // const findUser = await User.findOne({
-    //     email: req.user.profile._json.email
-    // })
-
-    // if(findUser === null) {
-    //     const user = new User({
-    //         email: req.user.profile._json.email,
-    //         username: req.user.profile.displayName,
-    //         steps: 0,
-    //         created: Date.now() + timeZoneOffset,
-    //         achievements : [],
-    //         lastLoggedIn: Date.now() + timeZoneOffset
-    //     })
-    //     await user.save()
-    // }
-    
     const motivationQuoteData = await getMotivationQuote()
 
     const randomIndex = Math.floor(Math.random()*motivationQuoteData.data.length)
@@ -47,6 +29,22 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         motivationQuoteAuthor,
         motivationQuoteText,
     })
+
+    const findUser = await User.findOne({
+        email: req.user.profile._json.email
+    })
+
+    if(findUser === null) {
+        const user = new User({
+            email: req.user.profile._json.email,
+            username: req.user.profile.displayName,
+            steps: 0,
+            created: Date.now() + timeZoneOffset,
+            achievements : [],
+            lastLoggedIn: Date.now() + timeZoneOffset
+        })
+        await user.save()
+    }
 })
 
 
