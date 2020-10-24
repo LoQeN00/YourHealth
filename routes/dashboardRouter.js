@@ -49,6 +49,8 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         })
         await user.save()
     }
+
+    console.log('siema')
 })
 
 
