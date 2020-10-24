@@ -30,20 +30,20 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         motivationQuoteText,
     })
 
-    // const findUser = await User.findOne({
-    //     email: req.user.profile._json.email
-    // })
-    // if(findUser === null) {
-    //     const user = new User({
-    //         email: req.user.profile._json.email,
-    //         username: req.user.profile.displayName,
-    //         steps: 0,
-    //         created: Date.now() + timeZoneOffset,
-    //         achievements : [],
-    //         lastLoggedIn: Date.now() + timeZoneOffset
-    //     })
-    //     await user.save()
-    // }
+    const findUser = await User.findOne({
+        email: req.user.profile._json.email
+    })
+    if(findUser === null) {
+        const user = new User({
+            email: req.user.profile._json.email,
+            username: req.user.profile.displayName,
+            steps: 0,
+            created: Date.now() + timeZoneOffset,
+            achievements : [],
+            lastLoggedIn: Date.now() + timeZoneOffset
+        })
+        await user.save()
+    }
 })
 
 
