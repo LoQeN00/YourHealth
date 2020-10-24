@@ -48,7 +48,6 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         picture: req.user.profile._json.picture,
         motivationQuoteAuthor,
         motivationQuoteText,
-        findUser
     })
 })
 
