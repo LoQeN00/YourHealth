@@ -37,11 +37,11 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
     // if(findUser === null) {
     //     const user = new User({
     //         email: req.user.profile._json.email,
-    //         username: req.user.profile.displayName,
-    //         steps: 0,
-    //         created: Date.now() + timeZoneOffset,
+    //         username: req.user.profile.displayNaame,asdsadsadsa
+    //         steps: 0,asdsad
+    //         created: Date.now() + timeZoneOffset,asdsada
     //         achievements : [],
-    //         lastLoggedIn: Date.now() + timeZoneOffset
+    //         lastLoggedIn: Date.now() + timeZoneOffsetasd
     //     })
 
     //     await user.save()
