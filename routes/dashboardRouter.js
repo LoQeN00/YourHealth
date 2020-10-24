@@ -12,7 +12,6 @@ const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 // achievement
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
-    
 
     const motivationQuoteData = await getMotivationQuote()
 
@@ -34,7 +33,6 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         email: req.user.profile._json.email
     })
 
-    console.log('before if')
     
     if(findUser === null) {
         const user = new User({
@@ -46,8 +44,6 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
             lastLoggedIn: Date.now() + timeZoneOffset
         })
 
-    console.log('after if')
-    console.log(user)    
         await user.save()
     }
 })

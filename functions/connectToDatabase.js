@@ -7,7 +7,6 @@ const connectToDatabase = async (url) => {
             useUnifiedTopology: true,
             useFindAndModify: false,
             useCreateIndex: true,
-            
           },()=>console.log('Zmienione connect'));
     } catch(e) {
         console.log(e)
