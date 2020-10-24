@@ -1,5 +1,5 @@
 const develop = 'http://localhost:3000/chartData'
-const production = 'http://yourhealth-hackheroes.herokuapp.com/chartData'
+const production = 'https://yourhealth-hackheroes.herokuapp.com/chartData'
 
 const getData = async () => {
     const data = await fetch(production,{
