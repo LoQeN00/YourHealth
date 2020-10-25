@@ -39,9 +39,9 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
             email: req.user.profile._json.email,
             username: req.user.profile.displayName,
             steps: 0,
-            created: Date.now() + timeZoneOffset,
+            created: Date.now(),
             achievements : [],
-            lastLoggedIn: Date.now() + timeZoneOffset
+            lastLoggedIn: Date.now() 
         })
 
         await user.save()

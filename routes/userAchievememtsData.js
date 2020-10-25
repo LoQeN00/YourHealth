@@ -4,25 +4,12 @@ const router = require('express').Router()
 const checkAchievements = require('../functions/checkAchievements')
 const getSteps = require('../functions/getSteps')
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
+const updateSteps = require('../functions/updateSteps')
 
 
 router.get('/',async(req,res)=>{
 
-    const user = await User.findOne({
-        email: req.user.profile._json.email
-    })
-    
-    const created = user.created
-
-    const stepPoints = await getSteps(1, created-timeZoneOffset, Date.now(), req.user.accessToken)
-
-    let userSteps
-    
-    try {
-        userSteps = stepPoints[0].reduce((acc,num)=>acc+num)
-    } catch {
-        userSteps = 0
-    }
+    const userSteps = await updateSteps(req.user.accessToken,req.user.profile._json.email)
 
     const insertStepsToDatabase = userSteps
     
@@ -40,7 +27,7 @@ router.get('/',async(req,res)=>{
             email: req.user.profile._json.email
         },
         {
-            lastLoggedIn: Date.now() + timeZoneOffset,
+            lastLoggedIn: Date.now(),
             steps: insertStepsToDatabase
         }
     )   

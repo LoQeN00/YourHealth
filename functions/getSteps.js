@@ -5,7 +5,6 @@ const getSteps = async (durationMins, startTime, endTime, token)=>{
     const steps_arr = []
     const date_arr = []
 
-
     try{
         const steps = await axios({
             method: "POST",
@@ -25,7 +24,7 @@ const getSteps = async (durationMins, startTime, endTime, token)=>{
                     durationMillis: (durationMins*60*1000) // Co ile zliczać
                 },
                 startTimeMillis: startTime, //Od kiedy
-                endTimeMillis: endTime+timeZoneOffset
+                endTimeMillis: endTime+3600000
             }
         })
     
