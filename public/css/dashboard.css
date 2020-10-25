@@ -218,13 +218,6 @@ body,a {
 }
 
 
-.dashboard-flag,.steps-flag,.achievements-flag {
-    text-decoration: underline rgb(17, 97, 73);
-}
-
-
-
-
 @media (max-width: 576px){
     .login-page__main {
         min-width: 100%;
