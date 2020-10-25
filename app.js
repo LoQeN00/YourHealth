@@ -8,6 +8,7 @@ const hbs = require('hbs')
 const path = require('path')
 const dashboardRouter = require('./routes/dashboardRouter')
 const chartDataRouter = require('./routes/chartDataRouter')
+const userAchievementsRouter = require('./routes/userAchievememtsData')
 const isLoggedIn = require('./functions/isLoggedIn')
 const connectToDatabase = require('./functions/connectToDatabase')
 
@@ -61,6 +62,7 @@ app.get('/google/callback',
 
 app.use('/dashboard',dashboardRouter)
 app.use('/chartData',chartDataRouter)
+app.use('/userAchievementsData',userAchievementsRouter)
 
 app.get('/fail',(req,res)=>{
     res.send('Wrong login data')

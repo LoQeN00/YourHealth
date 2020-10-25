@@ -40,7 +40,7 @@ body,a {
 .navigation__item .navigation__link {
     font-size: 1.3rem;
     text-decoration: none;
-    color: black;
+    color: rgb(33, 182, 125);
 }
 
 .navigation__user__info {
@@ -180,6 +180,45 @@ body,a {
     border-radius: 4px;
 }
 
+.achievements-title {
+    text-align: center;
+}
+
+.all-achievements,.user-achievements {
+    display: flex; justify-content: center; align-items: center;
+}
+
+.user-achievements__item,.all-achievements__item {
+    padding: .75rem;
+    margin: 1rem;
+}
+
+.user-achievements__item {
+    border: 3px solid rgb(33, 182, 125);
+}
+
+.all-achievements__item {
+    border: 3px solid black;
+}
+
+.navigation__logo {
+    width: 100%;
+    height: 10%;
+    display: flex; justify-content: center; align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.navigation__logo h1 {
+    font-size: 3rem;
+    color: rgb(33, 182, 125);
+}
+
+.fa-home,.fa-shoe-prints,.fa-trophy,.fa-weight,.fa-user-friends {
+    color: rgb(17, 97, 73);
+}
+
+ 
+    
 
 
 

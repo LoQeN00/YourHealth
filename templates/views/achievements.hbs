@@ -12,9 +12,18 @@
     {{>menu}}
     <main class='content'>
         <h1>{{routeName}}</h1>
-        {{#each userAchivementMap }}
-            <h2>{{this}}</h2>
-        {{/each}}
+        <h2 class='achievements-title'>All achievements</h2>
+        <section class='all-achievements'>
+            <div class='all-achievements__item'><h3>1k Steps</h3><h3 data-progress><span></span><span>/1000</span></h3></div>
+            <div class='all-achievements__item'><h3>5k Steps</h3><h3 data-progress><span></span><span>/5000</span></h3></div>
+            <div class='all-achievements__item'><h3>10k Steps</h3><h3 data-progress><span></span><span>/10000</span></h3></div>
+            <div class='all-achievements__item'><h3>20k Steps</h3><h3 data-progress><span></span><span>/20000</span></h3></div>
+        </section>
+        <h2 class='achievements-title'>Your achievements</h2>
+        <section data-user-achievements class='user-achievements'>
+
+        </section>
     </main>
+    <script src="/js/achievements.js"></script>
 </body>
 </html>

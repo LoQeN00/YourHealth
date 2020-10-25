@@ -9,7 +9,7 @@ let k1Rule = {
     event: {
         type: 'message',
         params: {
-            message: 'Zrobiłeś 1k kroków'
+            message: '1k Steps'
         }
     }
 }
@@ -25,7 +25,7 @@ let k5Rule = {
     event: {
         type: 'message',
         params: {
-            message: 'Zrobiłeś 5k kroków'
+            message: '5k Steps'
         }
     }
 }
@@ -41,7 +41,7 @@ let k10Rule = {
     event: {
         type: 'message',
         params: {
-            message: 'Zrobiłeś 10k kroków'
+            message: '10k Steps'
         }
     }
 }
@@ -57,7 +57,7 @@ let k20Rule = {
     event: {
         type: 'message',
         params: {
-            message: 'Zrobiłeś 20k kroków'
+            message: '20k Steps'
         }
     }
 }
