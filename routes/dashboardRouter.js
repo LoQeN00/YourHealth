@@ -49,7 +49,7 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
 })
 
 
-router.get('/steps',async(req,res)=> {
+router.get('/steps',isNotLoggedIn,async(req,res)=> {
     const steps24Data = await getSteps(30, Date.now() - 86400000 - timeZoneOffset, Date.now(), req.user.accessToken)
     let steps24
     try {
@@ -70,7 +70,7 @@ router.get('/steps',async(req,res)=> {
 })
 
 
-router.get('/achievements',async(req,res)=> {
+router.get('/achievements',isNotLoggedIn,async(req,res)=> {
 
     res.render('achievements',{
         routeName: 'Achievments',
