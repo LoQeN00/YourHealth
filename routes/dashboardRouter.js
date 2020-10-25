@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const User = require('../models/User')
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 const compare = require('../functions/compare')
+const updateSteps = require('../functions/updateSteps')
 
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
@@ -50,7 +51,8 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
 
 
 router.get('/steps',isNotLoggedIn,async(req,res)=> {
-    const steps24Data = await getSteps(30, Date.now() - 86400000 - timeZoneOffset, Date.now(), req.user.accessToken)
+    const steps24Data = await getSteps(30, Date.now() - 86400000 - 3600000 , Date.now(), req.user.accessToken)
+
     let steps24
     try {
         const steps_arr = steps24Data[0]
@@ -82,13 +84,25 @@ router.get('/achievements',isNotLoggedIn,async(req,res)=> {
 
 router.get('/leadboard',isNotLoggedIn,async(req,res)=>{
 
-   
+    const userSteps = await updateSteps(req.user.accessToken,req.user.profile._json.email)
 
+    const insertStepsToDatabase = userSteps
+
+    const update = await User.findOneAndUpdate(
+        {
+            email: req.user.profile._json.email
+        },
+        {
+            lastLoggedIn: Date.now(),
+            steps: insertStepsToDatabase
+        }
+    )   
+
+   
     const allUsersData = await User.find()
 
     const sortedLeaderboard = allUsersData.sort(compare)
 
-    console.log(sortedLeaderboard)
 
     res.render('leadboard',{
         routeName: 'Leadboard',
