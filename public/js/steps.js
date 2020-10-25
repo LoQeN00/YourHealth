@@ -23,8 +23,8 @@ const makeBarChart = (ctx, labels, data, label) => {
             datasets: [{
                 label: label,
                 data: data,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(105, 199, 71, 0.2)',
+                borderColor: 'rgba(105, 145, 71, 1)',
                 borderWidth: 1
             }]
         },

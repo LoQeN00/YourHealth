@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="icon" 
+      type="image/png" 
+      href="/images/ikonka.png">
 </head>
 <body>
     <div class="main-content">
@@ -21,9 +24,22 @@
             </div>
         </div>
         <main class='content'>
-            {{#each sortedLeaderboard}}
-                <h2>{{incremented @index}}.{{this.username}} : {{this.steps}}</h2>
-            {{/each}}
+            <div class="leaderboard">
+                <table>
+                    <tr>
+                        <th>Pos.</th>
+                        <th>Name</th>
+                        <th>Steps</th>
+                    </tr>
+                    {{#each sortedLeaderboard}}
+                        <tr>
+                            <td>{{incremented @index}}</td>
+                            <td>{{this.username}}</td>
+                            <td>{{this.steps}}</td>
+                        </tr> 
+                    {{/each}}
+                </table>
+            </div>
         </main>
     </div>
     <button data-burger-menu class='burger-menu'><i class="fas fa-bars"></i></button>

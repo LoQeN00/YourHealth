@@ -23,6 +23,8 @@ const displayAchievements = async () => {
 
     const data = await getData()
 
+    console.log(data)
+
     data.userAchievements.forEach(item=> {
         const div = document.createElement('div')
         div.classList.add('user-achievements__item')
