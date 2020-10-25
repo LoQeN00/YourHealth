@@ -25,6 +25,7 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
         picture: req.user.profile._json.picture,
         motivationQuoteAuthor,
         motivationQuoteText,
+        dashboardFlag: 'dashboard-flag'
     })
 
     
@@ -65,7 +66,8 @@ router.get('/steps',isNotLoggedIn,async(req,res)=> {
         name: req.user.profile.displayName,
         email: req.user.profile._json.email,
         picture: req.user.profile._json.picture,
-        steps24 : steps24
+        steps24 : steps24,
+        stepsFlag: 'steps-flag'
     })
 })
 
@@ -77,6 +79,7 @@ router.get('/achievements',isNotLoggedIn,async(req,res)=> {
         name: req.user.profile.displayName,
         email: req.user.profile._json.email,
         picture: req.user.profile._json.picture,
+        achievementsFlag : 'achievements-flag'
     })
 })
 

@@ -217,8 +217,10 @@ body,a {
     color: rgb(17, 97, 73);
 }
 
- 
-    
+
+.dashboard-flag,.steps-flag,.achievements-flag {
+    text-decoration: underline rgb(17, 97, 73);
+}
 
 
 
