@@ -12,10 +12,10 @@ router.get('/',async(req,res)=>{
         email: req.user.profile._json.email
     })
     
-    const lastLogged = user.lastLoggedIn
-    
-    const stepPoints = await getSteps(1, lastLogged-timeZoneOffset, Date.now(), req.user.accessToken)
-    
+    const created = user.created
+
+    const stepPoints = await getSteps(1, created-timeZoneOffset, Date.now(), req.user.accessToken)
+
     let userSteps
     
     try {
@@ -23,8 +23,8 @@ router.get('/',async(req,res)=>{
     } catch {
         userSteps = 0
     }
-    
-    const insertStepsToDatabase = user.steps + userSteps
+
+    const insertStepsToDatabase = userSteps
     
     const userAchievements = await checkAchievements(insertStepsToDatabase)
     

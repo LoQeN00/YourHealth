@@ -5,6 +5,7 @@ const getMotivationQuote = require('../functions/motivationQuote')
 const mongoose = require('mongoose')
 const User = require('../models/User')
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
+const compare = require('../functions/compare')
 
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
@@ -36,7 +37,7 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
     if(findUser === null) {
         const user = new User({
             email: req.user.profile._json.email,
-            username: req.user.profile.displayNaame,
+            username: req.user.profile.displayName,
             steps: 0,
             created: Date.now() + timeZoneOffset,
             achievements : [],
@@ -45,7 +46,6 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
 
         await user.save()
     }
-
 })
 
 
@@ -77,6 +77,25 @@ router.get('/achievements',isNotLoggedIn,async(req,res)=> {
         name: req.user.profile.displayName,
         email: req.user.profile._json.email,
         picture: req.user.profile._json.picture
+    })
+})
+
+router.get('/leadboard',isNotLoggedIn,async(req,res)=>{
+
+   
+
+    const allUsersData = await User.find()
+
+    const sortedLeaderboard = allUsersData.sort(compare)
+
+    console.log(sortedLeaderboard)
+
+    res.render('leadboard',{
+        routeName: 'Leadboard',
+        name: req.user.profile.displayName,
+        email: req.user.profile._json.email,
+        picture: req.user.profile._json.picture,
+        sortedLeaderboard
     })
 })
 
