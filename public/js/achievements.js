@@ -1,9 +1,11 @@
 const userAchievemenstsDiv = document.querySelector('[data-user-achievements]')
 const progress = [...document.querySelectorAll('[data-progress]')]
 
+const develop = 'http://localhost:3000/userAchievementsData'
+const production = 'https://yourhealth-hackheroes.herokuapp.com/userAchievementsData'
 
 const getData = async () => {
-    const data = await fetch("http://localhost:3000/userAchievementsData",{
+    const data = await fetch(production,{
      method:"GET",
      headers : new Headers({
         'Content-Type':'application/json'
