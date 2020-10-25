@@ -2,7 +2,6 @@ const User = require('../models/User')
 const mongoose = require('mongoose')
 const router = require('express').Router()
 const checkAchievements = require('../functions/checkAchievements')
-const getSteps = require('../functions/getSteps')
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset())/60
 const updateSteps = require('../functions/updateSteps')
 
