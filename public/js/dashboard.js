@@ -1,4 +1,3 @@
-if (window.location.protocol != "https:") {
-    window.location.protocol = "https:";
-    window.location.reload();
+if (location.protocol !== 'https:') {
+    location.replace(`https:${location.href.substring(location.protocol.length)}`);
 }
