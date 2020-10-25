@@ -12,6 +12,11 @@ const userAchievementsRouter = require('./routes/userAchievememtsData')
 const isLoggedIn = require('./functions/isLoggedIn')
 const connectToDatabase = require('./functions/connectToDatabase')
 
+hbs.registerHelper('incremented', function (index) {
+    index++;
+    return index;
+});
+
 
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()

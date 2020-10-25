@@ -9,11 +9,26 @@
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-    {{>menu}}
-    <main class='content'>
-        <h1>{{routeName}}</h1>
-        <h2>{{motivationQuoteText}} ~ {{motivationQuoteAuthor}}</h2>
-    </main>
+    <div class="main-content">
+        {{>menu}}
+        <div class="holder">
+            <div class="navbar">
+                <div class="navbar__title">
+                    <div class='asd'><h1>{{routeName}}</h1></div>
+                </div>
+            <div class="navbar__logo">
+                <h1>Your Health <i class="fas fa-heartbeat"></i></h1>
+            </div>
+        </div>
+        <main class='content'>
+            <div class="cleanslate w24tz-current-time w24tz-middle" style="display: inline-block !important; visibility: hidden !important; min-width:300px !important; min-height:145px !important;"><p><a href="//24timezones.com/Warsaw/time" style="text-decoration: none" class="clock24" id="tz24-1603656729-c1262-eyJob3VydHlwZSI6IjI0Iiwic2hvd2RhdGUiOiIxIiwic2hvd3NlY29uZHMiOiIwIiwiY29udGFpbmVyX2lkIjoiY2xvY2tfYmxvY2tfY2I1Zjk1ZGMxOWRhMDdkIiwidHlwZSI6ImRiIiwibGFuZyI6ImVuIn0=" title="Warsaw Time" target="_blank" rel="nofollow">Current Time</a></p><div id="clock_block_cb5f95dc19da07d"></div></div>
+            <h2>Your motivational quote :  "{{motivationQuoteText}}" ~ {{motivationQuoteAuthor}}</h2>
+        </main>
+        </div>
+    </div>
+    <button data-burger-menu class='burger-menu'><i class="fas fa-bars"></i></button>
+    <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
     <script src="/js/dashboard.js"></script>
+    <script src="/js/navbarHandle.js"></script>
 </body>
 </html>

@@ -76,7 +76,7 @@ router.get('/steps',isNotLoggedIn,async(req,res)=> {
 router.get('/achievements',isNotLoggedIn,async(req,res)=> {
 
     res.render('achievements',{
-        routeName: 'Achievments',
+        routeName: 'Achievements',
         name: req.user.profile.displayName,
         email: req.user.profile._json.email,
         picture: req.user.profile._json.picture
@@ -106,12 +106,28 @@ router.get('/leadboard',isNotLoggedIn,async(req,res)=>{
 
 
     res.render('leadboard',{
-        routeName: 'Leadboard',
+        routeName: 'Leaderboard',
         name: req.user.profile.displayName,
         email: req.user.profile._json.email,
         picture: req.user.profile._json.picture,
         sortedLeaderboard
     })
+})
+
+
+router.get('/diet',(req,res)=> {
+    res.send(`This feature will be in future   <a href='/dashboard'>Back</a>`)
+})
+
+
+router.get('/authors',(req,res)=> {
+    res.render('authors',{
+        routeName: 'Authors',
+        name: req.user.profile.displayName,
+        email: req.user.profile._json.email,
+        picture: req.user.profile._json.picture,
+    })
+
 })
 
 

@@ -21,12 +21,25 @@
             </div>
         </div>
         <main class='content'>
-            {{#each sortedLeaderboard}}
-                <h2>{{incremented @index}}.{{this.username}} : {{this.steps}}</h2>
-            {{/each}}
+            <div class='authors'>
+                <div class='authors__holder'>
+                    <img class='authors__img' src="/images/mateusz.jpg" alt="">
+                    <h2>Mateusz Kozłowski</h2>
+                </div>
+                <div class='authors__holder'>
+                    <img class='authors__img' src="/images/kuba.jpg" alt="">
+                    <h2>Kuba Bienia</h2>
+                </div>
+                <div class='authors__holder'>
+                    <img class='authors__img' src="/images/marcel.jpg" alt="">
+                    <h2>Marcel Leszek</h2>
+                </div>
+            </div>
         </main>
+        </div>
     </div>
     <button data-burger-menu class='burger-menu'><i class="fas fa-bars"></i></button>
+    <script src="/js/dashboard.js"></script>
     <script src="/js/navbarHandle.js"></script>
 </body>
 </html>

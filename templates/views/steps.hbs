@@ -9,21 +9,33 @@
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-    {{>menu}}
-    <main class='content'>
-        <h1>{{routeName}}</h1>
-        <h2>Twoje kroki przez ostatnie 24h to: {{steps24}} </h1>
-        <div class='24chart chart'>
-            <canvas id='step__24__chart'></canvas>    
+    <div class="main-content">
+        {{>menu}}
+        <div class="holder">
+            <div class="navbar">
+                <div class="navbar__title">
+                    <div class='asd'><h1>{{routeName}}</h1></div>
+                </div>
+            <div class="navbar__logo">
+                <h1>Your Health <i class="fas fa-heartbeat"></i></h1>
+            </div>
         </div>
-        <div class='7dchart chart'>
-            <canvas id='step__7d__chart'></canvas>
-        </div>
-        <div class='30dchart chart'>
-            <canvas id='step__30d__chart'></canvas>
-        </div>
-    </main>
+        <main class='content'>
+            <h2>Twoje kroki przez ostatnie 24h to: {{steps24}} </h1>
+            <div class='24chart chart'>
+                <canvas id='step__24__chart'></canvas>    
+            </div>
+            <div class='7dchart chart'>
+                <canvas id='step__7d__chart'></canvas>
+            </div>
+            <div class='30dchart chart'>
+                <canvas id='step__30d__chart'></canvas>
+            </div>
+        </main>
+    </div>
+    <button data-burger-menu class='burger-menu'><i class="fas fa-bars"></i></button>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="/js/steps.js"></script>
+    <script src="/js/navbarHandle.js"></script>
 </body>
 </html>

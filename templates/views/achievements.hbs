@@ -9,21 +9,34 @@
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-    {{>menu}}
-    <main class='content'>
-        <h1>{{routeName}}</h1>
-        <h2 class='achievements-title'>All achievements</h2>
-        <section class='all-achievements'>
-            <div class='all-achievements__item'><h3>1k Steps</h3><h3 data-progress><span></span><span>/1000</span></h3></div>
-            <div class='all-achievements__item'><h3>5k Steps</h3><h3 data-progress><span></span><span>/5000</span></h3></div>
-            <div class='all-achievements__item'><h3>10k Steps</h3><h3 data-progress><span></span><span>/10000</span></h3></div>
-            <div class='all-achievements__item'><h3>20k Steps</h3><h3 data-progress><span></span><span>/20000</span></h3></div>
-        </section>
-        <h2 class='achievements-title'>Your achievements</h2>
-        <section data-user-achievements class='user-achievements'>
+    <div class="main-content">
+        {{>menu}}
+               <div class="holder">
+            <div class="navbar">
+                <div class="navbar__title">
+                    <div class='asd'><h1>{{routeName}}</h1></div>
+                </div>
+            <div class="navbar__logo">
+                <h1>Your Health <i class="fas fa-heartbeat"></i></h1>
+            </div>
+        </div>
+        <main class='content'>
+            <h2 class='achievements-title'>All achievements</h2>
+            <section class='all-achievements'>
+                <div class='all-achievements__item'><h3>1k Steps</h3><h3 data-progress><span></span><span>/1000</span></h3></div>
+                <div class='all-achievements__item'><h3>5k Steps</h3><h3 data-progress><span></span><span>/5000</span></h3></div>
+                <div class='all-achievements__item'><h3>10k Steps</h3><h3 data-progress><span></span><span>/10000</span></h3></div>
+                <div class='all-achievements__item'><h3>20k Steps</h3><h3 data-progress><span></span><span>/20000</span></h3></div>
+                <div class='all-achievements__item'><h3>More achievements <br> soon ...</h3></div>
+            </section>
+            <h2 class='achievements-title'>Your achievements</h2>
+            <section data-user-achievements class='user-achievements'>
 
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
+    <button data-burger-menu class='burger-menu'><i class="fas fa-bars"></i></button>
     <script src="/js/achievements.js"></script>
+    <script src="/js/navbarHandle.js"></script>
 </body>
 </html>
