@@ -3,6 +3,7 @@ const axios = require('axios')
 const getSteps = require('../functions/getSteps')
 const timeZoneOffset = 3600000 * Math.abs(new Date().getTimezoneOffset()) / 60
 
+
 router.get('/',async (req,res)=> {
 
     const token = req.user.accessToken

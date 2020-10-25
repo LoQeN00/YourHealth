@@ -51,6 +51,7 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
 
 
 router.get('/steps',isNotLoggedIn,async(req,res)=> {
+
     const steps24Data = await getSteps(30, Date.now() - 86400000 - 3600000 , Date.now(), req.user.accessToken)
 
     let steps24
