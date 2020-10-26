@@ -1,0 +1,2 @@
+Aplikacja zczytuje dane z Google fit , więc gdy ktoś wejdzie na naszą aplikacje kontem google które nie jest podłączone do google fit to niestety nie bedziemy mogli pobrać danych 
+o statystykach , dlatego załączamy przykładowe zdjęcia jak to wygląda gdy ktoś jest podłączony
