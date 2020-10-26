@@ -12,15 +12,19 @@ router.get('/',async(req,res)=>{
 
     const insertStepsToDatabase = userSteps
 
-    const userAchievements = await checkAchievements(insertStepsToDatabase)
+    let userAchievements = await checkAchievements(insertStepsToDatabase)
 
-    const userAchivementMap = userAchievements.map(item=>item.params.message)
+    let userAchivementMap = userAchievements.map(item=>item.params.message)
 
     res.json({
         userAchievements:userAchivementMap,
         steps:insertStepsToDatabase
     })
     
+
+    userAchievements.length = 0
+
+
     const update = await User.findOneAndUpdate(
         {
             email: req.user.profile._json.email
