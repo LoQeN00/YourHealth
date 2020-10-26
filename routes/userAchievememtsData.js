@@ -23,6 +23,7 @@ router.get('/',async(req,res)=>{
     
 
     userAchievements.length = 0
+    userAchivementMap.length = 0
 
 
     const update = await User.findOneAndUpdate(
