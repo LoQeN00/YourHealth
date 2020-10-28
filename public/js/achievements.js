@@ -23,7 +23,7 @@ const displayAchievements = async () => {
 
     const data = await getData()
 
-    console.log(data)
+    console.log()
 
     data.userAchievements.forEach(item=> {
         const div = document.createElement('div')

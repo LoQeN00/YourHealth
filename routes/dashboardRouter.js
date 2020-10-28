@@ -10,7 +10,6 @@ const updateSteps = require('../functions/updateSteps')
 
 router.get('/',isNotLoggedIn,async (req,res)=> {
 
-
     const motivationQuoteData = await getMotivationQuote()
 
     const randomIndex = Math.floor(Math.random()*motivationQuoteData.data.length)
@@ -42,7 +41,8 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
             steps: 0,
             created: Date.now(),
             achievements : [],
-            lastLoggedIn: Date.now() 
+            lastLoggedIn: Date.now() ,
+            ip : req.ip
         })
 
         await user.save()
