@@ -41,8 +41,7 @@ router.get('/',isNotLoggedIn,async (req,res)=> {
             steps: 0,
             created: Date.now(),
             achievements : [],
-            lastLoggedIn: Date.now() ,
-            ip : req.ip
+            lastLoggedIn: Date.now() 
         })
 
         await user.save()
